@@ -4,7 +4,7 @@
 
 + [Python 3.7.6](https://www.python.org/downloads/release/python-376/).
 + Se utilizo el framework [Django](https://pypi.org/project/Django/).
-+ Para las pruebas unitarias se utilizo la libreria [django.test](https://pypi.org/project/django-test/) y la aplicación Postman.    
++ Para las pruebas unitarias se utilizo la libreria [Unittest Django Rest Framework] y la aplicación Postman.    
 
 ## Prerequisitos
 
