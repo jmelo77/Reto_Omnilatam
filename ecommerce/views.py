@@ -72,12 +72,12 @@ class DetailClientView(generics.RetrieveAPIView):
 class ListClientView(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
+    queryset = User.objects.all()
     serializer_class = UserClientSerializer
-    queryset = User.objects.filter(is_active=True).order_by('id')
 
 
 class DeleteClientView(generics.DestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated,]
     authentication_class = (TokenAuthentication)
     serializer_class = UserClientSerializer
 
@@ -90,14 +90,14 @@ class DeleteClientView(generics.DestroyAPIView):
 
 # Product
 class CreateProductView(generics.CreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated,]
     authentication_class = (TokenAuthentication)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer        
 
 
 class UpdateProductView(generics.UpdateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated,]
     authentication_class = (TokenAuthentication)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -111,9 +111,9 @@ class DetailProductView(generics.RetrieveAPIView):
 
 
 class ListProductView(generics.ListAPIView):
-    permission_classes = (permissions.IsAuthenticated)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
-    queryset = Product.objects.filter(is_active=True).order_by('id')
+    queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
@@ -255,7 +255,7 @@ class CreatePaymentView(generics.CreateAPIView):
 
 
 class UpdatePaymentView(generics.UpdateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     serializer_class = PaymentSerializer
     queryset = Payment.objects.all()
@@ -276,7 +276,7 @@ class ListPaymentView(generics.ListAPIView):
 
 
 class DeletePaymentView(generics.DestroyAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     queryset = Payment.objects.filter(is_active=True)
 
@@ -289,13 +289,13 @@ class DeletePaymentView(generics.DestroyAPIView):
 
 # Shipping
 class CreateShippingView(generics.CreateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     serializer_class = ShippingSerializer
 
 
 class UpdateShippingView(generics.UpdateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     serializer_class = ShippingSerializer
     queryset = Shipping.objects.all()
@@ -316,7 +316,7 @@ class ListShippingView(generics.ListAPIView):
 
 
 class DeleteShippingView(generics.DestroyAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     queryset = Shipping.objects.filter(is_active=True)
 
@@ -329,13 +329,13 @@ class DeleteShippingView(generics.DestroyAPIView):
        
 # Notification
 class CreateNotificationView(generics.CreateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     serializer_class = NotificationSerializer
 
 
 class UpdateNotificationView(generics.UpdateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     serializer_class = NotificationSerializer
     queryset = Notification.objects.all()
@@ -356,7 +356,7 @@ class ListNotificationView(generics.ListAPIView):
 
 
 class DeleteNotificationView(generics.DestroyAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
     queryset = Notification.objects.filter(is_active=True)
 
