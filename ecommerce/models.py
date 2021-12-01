@@ -10,7 +10,7 @@ class UserManager(AbstractUserManager):
         user = self.model(email=email, **kwargs)
         user.set_password(password)
         user.save()
-        return user
+        return user   
 
 # User model.
 class User(AbstractUser):

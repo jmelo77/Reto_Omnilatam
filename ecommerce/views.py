@@ -90,42 +90,38 @@ class DeleteClientView(generics.DestroyAPIView):
 
 # Product
 class CreateProductView(generics.CreateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = [permissions.IsAuthenticated]
     authentication_class = (TokenAuthentication)
-    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer        
 
 
 class UpdateProductView(generics.UpdateAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = [permissions.IsAuthenticated]
     authentication_class = (TokenAuthentication)
-    serializer_class = ProductSerializer
     queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 class DetailProductView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
-    serializer_class = ProductSerializer
     queryset = Product.objects.filter(is_active=True)
+    serializer_class = ProductSerializer
 
 
 class ListProductView(generics.ListAPIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated)
     authentication_class = (TokenAuthentication)
-    serializer_class = ProductSerializer
     queryset = Product.objects.filter(is_active=True).order_by('id')
+    serializer_class = ProductSerializer
 
 
 class DeleteProductView(generics.DestroyAPIView):
-    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser)
+    permission_classes = (permissions.IsAuthenticated,)
     authentication_class = (TokenAuthentication)
-    queryset = Product.objects.filter(is_active=True)
-
-    def delete(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.is_active = False
-        instance.save()
-        return Response({'msg': "deleted product."}, status=200)
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 # Order

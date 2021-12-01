@@ -3,7 +3,7 @@
 ## Introducción
 
 + [Python 3.7.6](https://www.python.org/downloads/release/python-376/).
-+ Se utilizo el framework Django [Django](https://pypi.org/project/Django/).
++ Se utilizo el framework [Django](https://pypi.org/project/Django/).
 + Para las pruebas unitarias se utilizo la libreria [Unittest](https://pypi.org/project/unittest/) y la aplicación Postman.    
 
 ## Prerequisitos
@@ -19,7 +19,7 @@ python -m venv venv
 python -m pip install -r requirements.txt
 python manage.py makemigrations api
 python manage.py migrate
-python manege.py runserver
+python manage.py runserver
 ```
 
 ## Diagrama Entidad Relación Ecommerce Omnilatam. 

@@ -82,7 +82,7 @@ class LoginSerializer(serializers.Serializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'price', 'is_active')
+        fields = ('name', 'price', 'quantity', 'tax', 'image', 'description', 'is_active')
 
 
 # Order Serializers
